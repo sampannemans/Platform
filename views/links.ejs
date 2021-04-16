@@ -1,0 +1,33 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+  <div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h3 class="mt-4">Links</h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item active">Links</li>
+            </ol>
+
+            <div class="page-section">
+              <ul class="list-unstyled">
+                <% links.forEach(function(link) { %>
+                  <li><a href="<%=link.url%>" target="_blank"><%= link.description %> (<%= link.url %>)</a></li>
+                <% }) %>
+              </ul>
+            </div>
+
+            <div class="page-section">
+              <form action="/links/create" method="post">
+                <button class="btn btn-primary" type="submit" name="submit">Create a new link</button>
+              </form>
+            </div>
+
+        </div>
+    </main>
+
+<%- include("partials/footer"); -%>

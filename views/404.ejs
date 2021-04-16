@@ -1,0 +1,41 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+
+<body>
+  <div id="layoutError">
+    <div id="layoutError_content">
+      <main>
+        <div class="container">
+          <div class="row justify-content-center">
+            <div class="col-lg-6">
+              <div class="text-center mt-4">
+                <img class="mb-4 img-error" src="/img/error-404-monochrome.svg" />
+                <p class="lead">Oops, something went wrong...</p>
+                <a href="/">
+                  <i class="fas fa-arrow-left mr-1"></i>
+                  Return to Dashboard
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div id="layoutError_footer">
+      <footer class="py-4 bg-light mt-auto">
+        <div class="container-fluid">
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Sam Pannemans 2021</div>
+            <div>
+              <a href="#">Privacy Policy</a>
+              &middot;
+              <a href="#">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <%- include("partials/footer"); -%>

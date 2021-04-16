@@ -1,0 +1,39 @@
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+<div id="layoutSidenav_content">
+  <main>
+      <div class="container-fluid">
+          <h3 class="mt-4">Notes</h3>
+          <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+              <li class="breadcrumb-item active">Notes</li>
+          </ol>
+
+          <div class="page-section">
+              <a class="btn btn-primary" href="/new-note">Create a new note</a>
+          </div>
+
+          <div class="page-section">
+            <h5>Notes</h5>
+            <table class="table table-sm">
+              <thead>
+                <th>Subject</th>
+                <th>Title</th>
+              </thead>
+
+              <% notes.forEach(function(note) { %>
+
+                <tr>
+                  <td><%= note.noteSubject %></td>
+                  <td><a href="/notes/<%=note._id%>"><%= note.noteTitle %></td>
+                </tr>
+              <% }); %>
+            </table>
+          </div>
+
+      </div>
+  </main>
+
+<%- include("partials/footer"); -%>

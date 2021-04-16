@@ -1,0 +1,38 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+  <div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h3 class="mt-4"><%=firstName%> <%=lastName%></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/users">Users</a></li>
+                <li class="breadcrumb-item active"><%=firstName%> <%=lastName%></li>
+            </ol>
+
+            <div class="page-section">
+              <ul class="list-unstyled">
+                <li><strong>First name:</strong> <%=firstName%></li>
+                <li><strong>Last name:</strong> <%=lastName%></li>
+                <li><strong>Function:</strong> <%=functionName%></li>
+                <li><strong>Username:</strong> <%=userName%></li>
+                <li><strong>User ID:</strong> <%=userId%></li>
+                <li><strong>Team:</strong> <%=teamName%></li>
+              </ul>
+            </div>
+
+            <div class="page-section">
+              <form action="#" method="post">
+                <button class="btn btn-primary" type="submit" name="submitEdit" formaction="/users/<%=userId%>/edit" value="<%=userName%>">Edit</button>
+                <button class="btn btn-danger" type="submit" name="submitDelete" formaction="/users/<%=userId%>/delete" value="<%=userName%>">Delete</button>
+              </form>
+            </div>
+
+        </div>
+    </main>
+
+<%- include("partials/footer"); -%>

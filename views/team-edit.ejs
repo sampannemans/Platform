@@ -1,0 +1,35 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+  <div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h3 class="mt-4">Edit <%=teamName%></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/teams">Teams</a></li>
+                <li class="breadcrumb-item active">Edit <%=teamName%></li>
+            </ol>
+
+            <div class="page-section">
+
+              <form action="/teams/<%=teamId%>/updated" method="post">
+                <div>
+                  <strong>Team name</strong>
+                  <input type="hidden" name="originalTeamName" value="<%=teamName%>">
+                  <input class="form-control py-4" name="newTeamName" type="text" value="<%=teamName%>"/>
+                </div>
+                <div class="page-section">
+                  <button class="btn btn-primary" type="submit" name="submit">Save</button>
+                  <a class="btn btn-secondary" href="/teams/<%=teamId%>">Cancel</a>
+                </div>
+              </form>
+            </div>
+
+        </div>
+    </main>
+
+<%- include("partials/footer"); -%>

@@ -1,0 +1,50 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+  <div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h3 class="mt-4">Edit <%=firstName%> <%=lastName%></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/users">Users</a></li>
+                <li class="breadcrumb-item active">Edit <%=firstName%> <%=lastName%></li>
+            </ol>
+
+            <div class="page-section">
+
+              <form action="/users/<%=userId%>/updated" method="post">
+                <div>
+                  <strong>First name</strong>
+                  <input type="hidden" name="originalFirstName" value="<%=firstName%>">
+                  <input class="form-control py-4" name="newFirstName" type="text" value="<%=firstName%>"/>
+                  <strong>Last name</strong>
+                  <input type="hidden" name="originalLastName" value="<%=lastName%>">
+                  <input class="form-control py-4" name="newLastName" type="text" value="<%=lastName%>"/>
+                  <strong>Function</strong>
+                  <input type="hidden" name="originalFunction" value="<%=functionName%>">
+                  <input class="form-control py-4" name="newFunction" type="text" value="<%=functionName%>"/>
+                  <strong>Team</strong>
+                  <div>
+                    <select class="form-select" aria-label="Default select example" name="newTeam">
+                      <option>-</option>
+                      <% teams.forEach(function(team) { %>
+                        <option value="<%=team.name%>"><%=team.name%></option>
+                      <% }) %>
+                    </select>
+                  </div>
+                </div>
+                <div class="page-section">
+                  <button class="btn btn-primary" type="submit" name="submit">Save</button>
+                  <a class="btn btn-secondary" href="/users/<%=userId%>">Cancel</a>
+                </div>
+              </form>
+            </div>
+
+        </div>
+    </main>
+
+<%- include("partials/footer"); -%>

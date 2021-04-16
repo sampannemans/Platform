@@ -1,0 +1,30 @@
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+<div id="layoutSidenav_content">
+  <main>
+      <div class="container-fluid">
+          <h3 class="mt-4">Messages</h3>
+          <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+              <li class="breadcrumb-item active">Messages</li>
+          </ol>
+
+          <div class="page-section">
+              <a class="btn btn-primary" href="/new-message">Create a new message</a>
+          </div>
+
+          <div class="page-section">
+            <h5>Messages</h5>
+            <ul class="list-unstyled">
+              <% messages.forEach(function(message) { %>
+                <li><a href="/messages/<%=message._id%>"><%= message.messageTitle %></a></li>
+              <% }) %>
+            </ul>
+          </div>
+
+      </div>
+  </main>
+
+<%- include("partials/footer"); -%>

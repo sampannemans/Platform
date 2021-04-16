@@ -1,0 +1,32 @@
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+<div id="layoutSidenav_content">
+  <main>
+      <div class="container-fluid">
+          <h3 class="mt-4">Notes</h3>
+          <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="/notes">Notes</a></li>
+              <li class="breadcrumb-item active"><%= noteTitle %></li>
+          </ol>
+          <div class="card mb-4">
+              <div class="card-body">
+                <p><strong>Subject: </strong><%= noteSubject %></p>
+                <h5><%= noteTitle %></h5>
+                <p><%- noteContent %></p>
+              </div>
+          </div>
+
+          <div class="page-section">
+            <form action="/notes/<%=noteId%>" method="post">
+              <button class="btn btn-primary" type="submit" name="submitEdit" formaction="/notes/<%=noteId%>/edit" value="<%=noteId%>">Edit</button>
+              <button class="btn btn-danger" type="submit" name="submitDelete" formaction="/notes/<%=noteId%>/delete" value="<%=noteId%>">Delete</button>
+            </form>
+          </div>
+
+      </div>
+  </main>
+
+<%- include("partials/footer"); -%>

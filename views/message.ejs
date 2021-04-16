@@ -1,0 +1,31 @@
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+<div id="layoutSidenav_content">
+  <main>
+      <div class="container-fluid">
+          <h3 class="mt-4">Messages</h3>
+          <ol class="breadcrumb mb-4">
+              <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+              <li class="breadcrumb-item"><a href="/messages">Messages</a></li>
+              <li class="breadcrumb-item active"><%= messageTitle %></li>
+          </ol>
+          <div class="card mb-4">
+              <div class="card-body">
+                <h5><%= messageTitle %></h5>
+                <p><%- messageContent %></p>
+              </div>
+          </div>
+          
+          <div class="page-section">
+            <form action="/messages/<%=messageId%>" method="post">
+              <button class="btn btn-primary" type="submit" name="submitEdit" formaction="/messages/<%=messageId%>/edit" value="<%=messageId%>">Edit</button>
+              <button class="btn btn-danger" type="submit" name="submitDelete" formaction="/messages/<%=messageId%>/delete" value="<%=messageId%>">Delete</button>
+            </form>
+          </div>
+
+      </div>
+  </main>
+
+<%- include("partials/footer"); -%>

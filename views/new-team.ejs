@@ -1,0 +1,42 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+  <div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h3 class="mt-4">Create a new team</h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="/teams">Teams</a></li>
+                <li class="breadcrumb-item active">Create a new team</li>
+            </ol>
+            <div class="card mb-4">
+                <div class="card-body">
+                    This page is an example of using the light side navigation option. By appending the
+                    <code>.sb-sidenav-light</code>
+                    class to the
+                    <code>.sb-sidenav</code>
+                    class, the side navigation will take on a light color scheme. The
+                    <code>.sb-sidenav-dark</code>
+                    is also available for a darker option.
+                </div>
+            </div>
+
+            <form action="/createTeam" method="post">
+              <div>
+                <strong>Team name</strong>
+                <input class="form-control py-4" name="teamDescription" type="text"/>
+              </div>
+              <div class="page-section">
+                <button class="btn btn-primary" type="submit" name="submit-create">Create</button>
+                <a class="btn btn-secondary" href="/teams">Cancel</a>
+              </div>
+            </form>
+
+        </div>
+    </main>
+
+<%- include("partials/footer"); -%>

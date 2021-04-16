@@ -1,0 +1,44 @@
+<%# Navigation and Content - see https://github.com/StartBootstrap/startbootstrap-sb-admin/blob/master/dist/layout-sidenav-light.html %>
+
+<%- include("partials/header"); -%>
+<body class="sb-nav-fixed">
+<%- include("partials/navigation"); -%>
+
+  <div id="layoutSidenav_content">
+    <main>
+        <div class="container-fluid">
+            <h3 class="mt-4">Users</h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item active">Users</li>
+            </ol>
+
+            <div class="page-section">
+              <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0" action="users/search" method="post">
+                  <div class="input-group">
+                      <input class="form-control" type="text" name="userSearchValue" placeholder="Search users..." aria-label="Search" aria-describedby="basic-addon2" />
+                      <div class="input-group-append">
+                          <button class="btn btn-primary" type="submit" name="submit"><i class="fas fa-search"></i></button>
+                      </div>
+                  </div>
+              </form>
+            </div>
+
+            <div class="page-section">
+              <ul class="list-unstyled">
+                <%  users.forEach(function(user){ %>
+                  <li><a href="/users/<%=user._id%>"><%=user.firstName%> <%=user.lastName%></a></li>
+                <% }); %>
+              </ul>
+            </div>
+
+            <div class="page-section">
+              <form action="#" method="post">
+                <button class="btn btn-primary" type="submit" name="submit">Create a new user</button>
+              </form>
+            </div>
+
+        </div>
+    </main>
+
+<%- include("partials/footer"); -%>
